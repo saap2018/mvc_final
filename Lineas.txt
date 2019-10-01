@@ -1,0 +1,2 @@
+Editar usuario
+<td><a href="?c=Usuario&a=Update&id=<?php echo $r->uid; ?>">Editar</a></td>

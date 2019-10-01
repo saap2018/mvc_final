@@ -1,0 +1,16 @@
+SELECT fecha, fechasalida, (datediff (fechasalida, fecha)) as dias from ingresos
+
+SELECT fecha, fechasalida, (datediff (fechasalida, fecha)) as dias, (TIMEDIFF (horasalida, tiempo)) As tiempo from ingresos
+
+SELECT fecha, fechasalida, (datediff (fechasalida, fecha)) as dias, format((TIMEDIFF (horasalida, tiempo)),'HH') As horas from ingresos
+
+SELECT fecha, fechasalida, (datediff (fechasalida, fecha)) as dias, hour(TIMEDIFF (horasalida, tiempo) As horas, minute(TIMEDIFF (horasalida, tiempo) As minutos from ingresos
+
+SELECT fecha as Fecha_Ingreso, fechasalida as Fecha_Salida, tiempo as Hora_Entrada, horasalida as Hora_Salida,(datediff (fechasalida, fecha)) as dias, hour(TIMEDIFF (horasalida, tiempo)) As horas, minute(TIMEDIFF (horasalida, tiempo)) As minutos from ingresos
+
+SELECT PlacasVehiculo as placas, TipoTarifa as Tarifa, tarifas.valor as valor, fecha as Fecha_Ingreso, fechasalida as Fecha_Salida, tiempo as Hora_Entrada, horasalida as Hora_Salida,(datediff (fechasalida, fecha)) as dias, hour(TIMEDIFF (horasalida, tiempo)) As horas, minute(TIMEDIFF (horasalida, tiempo)) As minutos from ingresos INNER JOIN tarifas on ingresos.TipoTarifa = tarifas.tarifa where liquidado = 'No';
+
+SELECT fecha as Fecha_Ingreso, fechasalida as Fecha_Salida, tiempo as Hora_Entrada, horasalida as Hora_Salida,(datediff (fechasalida, fecha)*valor) as dias, hour(TIMEDIFF (horasalida, tiempo)*valor) As horas, minute(TIMEDIFF (horasalida, tiempo)*valor) As minutos from ingresos INNER JOIN tarifas ON ingresos.TipoTarifa=tarifas.tarifa where liquidado = 'No'
+
+SELECT PlacasVehiculo as placas, TipoTarifa as Tarifa, tarifas.valor as valor, fecha as Fecha_Ingreso, fechasalida as Fecha_Salida, tiempo as Hora_Entrada, horasalida as Hora_Salida,(datediff (fechasalida, fecha)) as dias, hour(TIMEDIFF (horasalida, tiempo)) As horas, minute(TIMEDIFF (horasalida, tiempo)) As minutos from ingresos INNER JOIN tarifas on ingresos.TipoTarifa = tarifas.tarifa where liquidado = 'No',
+IF (anuncios.idRegion = 0, R1.nombre, R2.nombre) nombre
